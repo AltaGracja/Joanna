@@ -1,0 +1,41 @@
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\bin\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\bin\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\obj\x86\Debug\Delta.Form1.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\obj\x86\Debug\Delta.Properties.Resources.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\obj\x86\Debug\Delta.csproj.GenerateResource.Cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\obj\x86\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\obj\x86\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA\Delta\Delta\obj\x86\Debug\Delta.csprojResolveAssemblyReference.cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\obj\x86\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\obj\x86\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\bin\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\bin\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\obj\x86\Debug\Delta.Form1.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\obj\x86\Debug\Delta.Properties.Resources.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\obj\x86\Debug\Delta.csproj.GenerateResource.Cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1\Delta\Delta\obj\x86\Debug\Delta.csprojResolveAssemblyReference.cache
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.exe
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.pdb
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\bin\Debug\Delta.exe
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\bin\Debug\Delta.pdb
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.Form1.resources
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.Properties.Resources.resources
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\bin\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\bin\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.csprojResolveAssemblyReference.cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.Form1.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.Properties.Resources.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA1.2\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.csproj.GenerateResource.Cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.Form1.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.Properties.Resources.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.csproj.GenerateResource.Cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\bin\Debug\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\bin\Debug\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\DELTA1.1\Delta\Delta\obj\x86\Debug\Delta.csprojResolveAssemblyReference.cache
