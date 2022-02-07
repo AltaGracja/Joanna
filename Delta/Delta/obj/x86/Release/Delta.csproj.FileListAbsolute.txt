@@ -14,3 +14,10 @@ C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Release\De
 C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Release\Delta.Properties.Resources.resources
 C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Release\GenerateResource.read.1.tlog
 C:\Documents and Settings\student\Pulpit\DELTA1.1\Delta\Delta\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\obj\x86\Release\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\obj\x86\Release\Delta.pdb
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\obj\x86\Release\Delta.Form1.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\obj\x86\Release\Delta.Properties.Resources.resources
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\obj\x86\Release\Delta.csproj.GenerateResource.Cache
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\bin\Release\Delta.exe
+C:\Users\JK-P\Desktop\MetNum2018StudentInfor\DELTA_NOWA\Delta_KOR_2022\Delta\Delta\bin\Release\Delta.pdb

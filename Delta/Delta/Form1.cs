@@ -16,16 +16,10 @@ namespace Delta
         {
             InitializeComponent();
             ustaw();
-            degradacja();
+            //degradacja();
             wybor_panela();
             d = 1;
-            pictureBox2.Visible = true;
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox7.Visible = false;
-            pictureBox1.Visible = false;
+          
 
             dataGridView3[1, 0].Value = 0;
             dataGridView3[1, 1].Value = 0;
@@ -35,13 +29,16 @@ namespace Delta
             dataGridView3[3, 1].Value = 0;
             dataGridView3[3, 2].Value = 30;
             dataGridView3[3, 3].Value = 0;
+            solution();
         }
         double x, y, x1, y1,kata=0, katb=0;
         double[,] A = new double[7, 18];
         int k = 1, r = 1, d = 10, trak;
+        double[,] data = new double[11,18];
         double[] BB = new double[17];
         double[] C = new double[12];
         double[] B = new double[12];
+        double[] degrad=new double[26];
         string[] napis = new string[18];
         double kat_b;
         double moc0;
@@ -61,8 +58,7 @@ namespace Delta
 
         void ustaw()
         {
-            dataGridView1.ColumnCount = 11;
-            dataGridView1.RowCount = 17;
+           
 
             dataGridView2.ColumnCount = 6;
             dataGridView2.RowCount = 6;
@@ -85,20 +81,7 @@ namespace Delta
             napis[16] = "Mono-bifacjalny";
             napis[17] = "Mono-all back contact";
 
-            for (int i = 1; i <= 17; i++)
-                dataGridView1[10, i - 1].Value = napis[i];
-
-            for (int i = 1; i < 7; i++)
-            {
-                dataGridView1.Columns[i].Width = 120; // szerokość komórek tablicy A
-                dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString(); // I  
-
-
-            }
-            dataGridView2.Columns[0].Width = 200;
-            dataGridView2.Columns[2].Width = 150;
-                dataGridView2.Columns[3].Width = 60;;
-            dataGridView2.Columns[4].Width = 170;
+           
             dataGridView2[0, 0].Value = "Panel type";
             dataGridView2[0, 1].Value = "Typical power Wp";
             dataGridView2[0, 2].Value = "Typical efficiency";
@@ -122,194 +105,189 @@ namespace Delta
             dataGridView2[4, 5].Value = "  ";
 
 
-
-            dataGridView1.Columns[0].HeaderText = "Typical power Wp";
-            dataGridView1.Columns[1].HeaderText = "Typical efficiency";
-            dataGridView1.Columns[2].HeaderText = "Height a";
-            dataGridView1.Columns[3].HeaderText = "Width b";
-            dataGridView1.Columns[4].HeaderText = "śr.Temp. wsp. mocy";
-            dataGridView1.Columns[5].HeaderText = "Praice netto for Wp";
-            dataGridView1.Columns[6].HeaderText = "Praice";
-            dataGridView1.Columns[7].HeaderText = "efficiency";
-            dataGridView1.Columns[8].HeaderText = "temperature";
-            dataGridView1.Columns[9].HeaderText = "solution";
-            dataGridView1.Columns[10].HeaderText = "panel";
-
-            dataGridView1[0, 0].Value = 280;
-            dataGridView1[0, 1].Value = 100;
-            dataGridView1[0, 2].Value = 290;
-            dataGridView1[0, 3].Value = 300;
-            dataGridView1[0, 4].Value = 295;
-            dataGridView1[0, 5].Value = 325;
-            dataGridView1[0, 6].Value = 320;
-            dataGridView1[0, 7].Value = 100;
-            dataGridView1[0, 8].Value = 325;
-            dataGridView1[0, 9].Value = 140;
-            dataGridView1[0, 10].Value = 280;
-            dataGridView1[0, 11].Value = 295;
-            dataGridView1[0, 12].Value = 275;
-            dataGridView1[0, 13].Value = 300;
-            dataGridView1[0, 14].Value = 330;
-            dataGridView1[0, 15].Value = 300;
-            dataGridView1[0, 16].Value = 333;
+            
+            data[0, 0] = 280;
+            data[0,1] = 100;
+            data[0,2] = 290;
+            data[0,3] = 300;
+            data[0,4] = 295;
+            data[0,5] = 325;
+            data[0,6] = 320;
+            data[0,7] = 100;
+            data[0,8] = 325;
+            data[0,9] = 140;
+            data[0,10] = 280;
+            data[0,11] = 295;
+            data[0,12] = 275;
+            data[0,13] = 300;
+            data[0,14]= 330;
+            data[0,15] = 300;
+            data[0,16] = 333;
 
 
+            data[1, 0] = 17.2;
+            data[1, 1] = 8.3;
+            data[1, 2] = 17.6;
+            data[1, 3] = 18.5;
+            data[1, 4] = 18.2;
+            data[1, 5] = 19.8;
+            data[1, 6] = 19.7;
+            data[1, 7] = 13.9;
+            data[1, 8] = 20;
+            data[1, 9] = 13.4;
+            data[1, 10] = 17.2;
+            data[1, 11] = 18.2;
+            data[1, 12]= 16.9;
+            data[1, 13] = 18.5;
+            data[1, 14] = 20.1;
+            data[1, 15] = 18.3;
+            data[1, 16] = 20.5;
 
-            dataGridView1[1, 0].Value = 17.2;
-            dataGridView1[1, 1].Value = 8.3;
-            dataGridView1[1, 2].Value = 17.6;
-            dataGridView1[1, 3].Value = 18.5;
-            dataGridView1[1, 4].Value = 18.2;
-            dataGridView1[1, 5].Value = 19.8;
-            dataGridView1[1, 6].Value = 19.7;
-            dataGridView1[1, 7].Value = 13.9;
-            dataGridView1[1, 8].Value = 20;
-            dataGridView1[1, 9].Value = 13.4;
-            dataGridView1[1, 10].Value = 17.2;
-            dataGridView1[1, 11].Value = 18.2;
-            dataGridView1[1, 12].Value = 16.9;
-            dataGridView1[1, 13].Value = 18.5;
-            dataGridView1[1, 14].Value = 20.1;
-            dataGridView1[1, 15].Value = 18.3;
-            dataGridView1[1, 16].Value = 20.5;
+            data[2, 0] = 0.99;
+            data[2, 1] = 1.0;
+            data[2, 2] = 0.99;
+            data[2, 3] = 0.99;
+            data[2, 4] = 0.99;
+            data[2, 5] = 0.99;
+            data[2, 6] = 0.99;
+            data[2, 7] = 0.6;
+            data[2, 8] = 0.99;
+            data[2, 9] = 1;
+            data[2, 10] = 0.66;
+            data[2, 11] = 0.99;
+            data[2, 12] = 0.99;
+            data[2, 13] = 0.99;
+            data[2, 14] = 1.05;
+            data[2, 15] = 1.0;
+            data[2, 16] = 1.04;
 
-            dataGridView1[2, 0].Value = 0.99;
-            dataGridView1[2, 1].Value = 1.0;
-            dataGridView1[2, 2].Value = 0.99;
-            dataGridView1[2, 3].Value = 0.99;
-            dataGridView1[2, 4].Value = 0.99;
-            dataGridView1[2, 5].Value = 0.99;
-            dataGridView1[2, 6].Value = 0.99;
-            dataGridView1[2, 7].Value = 0.6;
-            dataGridView1[2, 8].Value = 0.99;
-            dataGridView1[2, 9].Value = 1;
-            dataGridView1[2, 10].Value = 0.66;
-            dataGridView1[2, 11].Value = 0.99;
-            dataGridView1[2, 12].Value = 0.99;
-            dataGridView1[2, 13].Value = 0.99;
-            dataGridView1[2, 14].Value = 1.05;
-            dataGridView1[2, 15].Value = 1.0;
-            dataGridView1[2, 16].Value = 1.04;
+            data[3, 0] = 1.64;
+            data[3, 1] = 1.2;
+            data[3, 2] = 1.66;
+            data[3, 3] = 1.64;
+            data[3, 4]= 1.64;
+            data[3, 5] = 1.66;
+            data[3, 6] = 1.64;
+            data[3, 7] = 1.2;
+            data[3, 8]= 1.64;
+            data[3, 9] = 1.58;
+            data[3, 10] = 1.64;
+            data[3, 11] = 1.64;
+            data[3, 12] = 1.64;
+            data[3, 13] = 1.64;
+            data[3, 14] = 1.59;
+            data[3, 15] = 1.64;
+            data[3, 16] = 1.56;
 
-            dataGridView1[3, 0].Value = 1.64;
-            dataGridView1[3, 1].Value = 1.2;
-            dataGridView1[3, 2].Value = 1.66;
-            dataGridView1[3, 3].Value = 1.64;
-            dataGridView1[3, 4].Value = 1.64;
-            dataGridView1[3, 5].Value = 1.66;
-            dataGridView1[3, 6].Value = 1.64;
-            dataGridView1[3, 7].Value = 1.2;
-            dataGridView1[3, 8].Value = 1.64;
-            dataGridView1[3, 9].Value = 1.58;
-            dataGridView1[3, 10].Value = 1.64;
-            dataGridView1[3, 11].Value = 1.64;
-            dataGridView1[3, 12].Value = 1.64;
-            dataGridView1[3, 13].Value = 1.64;
-            dataGridView1[3, 14].Value = 1.59;
-            dataGridView1[3, 15].Value = 1.64;
-            dataGridView1[3, 16].Value = 1.56;
-
-            dataGridView1[4, 0].Value = 0.41;
-            dataGridView1[4, 1].Value = 0.25;
-            dataGridView1[4, 2].Value = 0.38;
-            dataGridView1[4, 3].Value = 0.36;
-            dataGridView1[4, 4].Value = 0.43;
-            dataGridView1[4, 5].Value = 0.37;
-            dataGridView1[4, 6].Value = 0.45;
-            dataGridView1[4, 7].Value = 0.34;
-            dataGridView1[4, 8].Value = 0.36;
-            dataGridView1[4, 9].Value = 0.38;
-            dataGridView1[4, 10].Value = 0.43;
-            dataGridView1[4, 11].Value = 0.44;
-            dataGridView1[4, 12].Value = 0.44;
-            dataGridView1[4, 13].Value = 0.45;
-            dataGridView1[4, 14].Value = 0.29;
-            dataGridView1[4, 15].Value = 0.38;
-            dataGridView1[4, 16].Value = 0.33;
+            data[4, 0] = 0.41;
+            data[4, 1] = 0.25;
+            data[4, 2] = 0.38;
+            data[4, 3]= 0.36;
+            data[4, 4] = 0.43;
+            data[4, 5] = 0.37;
+            data[4, 6]= 0.45;
+            data[4, 7] = 0.34;
+            data[4, 8] = 0.36;
+            data[4, 9] = 0.38;
+            data[4, 10] = 0.43;
+            data[4, 11] = 0.44;
+            data[4, 12] = 0.44;
+            data[4, 13] = 0.45;
+            data[4, 14] = 0.29;
+            data[4, 15] = 0.38;
+            data[4, 16] = 0.33;
 
 
-            dataGridView1[5, 0].Value = 1.5;
-            dataGridView1[5, 1].Value = 1.6;
-            dataGridView1[5, 2].Value = 1.6;
-            dataGridView1[5, 3].Value = 1.7;
-            dataGridView1[5, 4].Value = 1.8;
-            dataGridView1[5, 5].Value = 1.9;
-            dataGridView1[5, 6].Value = 1.9;
-            dataGridView1[5, 7].Value = 0.0;
-            dataGridView1[5, 8].Value = 2.1;
-            dataGridView1[5, 9].Value = 2.1;
-            dataGridView1[5, 10].Value = 2.1;
-            dataGridView1[5, 11].Value = 2.2;
-            dataGridView1[5, 12].Value = 2.2;
-            dataGridView1[5, 13].Value = 2.4;
-            dataGridView1[5, 14].Value = 2.8;
-            dataGridView1[5, 15].Value = 3.2;
-            dataGridView1[5, 16].Value = 3.3;
-
-            // cena
-            dataGridView1[6, 0].Value = 12;
-            dataGridView1[6, 1].Value = 11;
-            dataGridView1[6, 2].Value = 11;
-            dataGridView1[6, 3].Value = 10;
-            dataGridView1[6, 4].Value = 9;
-            dataGridView1[6, 5].Value = 8;
-            dataGridView1[6, 6].Value = 8;
-            dataGridView1[6, 7].Value = 7;
-            dataGridView1[6, 8].Value = 6;
-            dataGridView1[6, 9].Value = 6;
-            dataGridView1[6, 10].Value = 6;
-            dataGridView1[6, 11].Value = 5;
-            dataGridView1[6, 12].Value = 5;
-            dataGridView1[6, 13].Value = 4;
-            dataGridView1[6, 14].Value = 3;
-            dataGridView1[6, 15].Value = 2;
-            dataGridView1[6, 16].Value = 1;
+            data[5, 0] = 1.5;
+            data[5, 1] = 1.6;
+            data[5, 2] = 1.6;
+            data[5, 3]= 1.7;
+            data[5, 4] = 1.8;
+            data[5, 5]= 1.9;
+            data[5, 6] = 1.9;
+            data[5, 7]=0.0;
+            data[5, 8] = 2.1;
+            data[5, 9] = 2.1;
+            data[5, 10] = 2.1;
+            data[5, 11]= 2.2;
+            data[5, 12] = 2.2;
+            data[5, 13] = 2.4;
+            data[5, 14]= 2.8;
+            data[5, 15] = 3.2;
+            data[5, 16]=3.3;
+                        // cena
+            data[6, 0] = 12;
+            data[6, 1]= 11;
+            data[6, 2] = 11;
+            data[6, 3]= 10;
+            data[6, 4] = 9;
+            data[6, 5] = 8;
+            data[6, 6] = 8;
+            data[6, 7] = 7;
+            data[6, 8] = 6;
+            data[6, 9]= 6;
+            data[6, 10] = 6;
+            data[6, 11] = 5;
+            data[6, 12] = 5;
+            data[6, 13] = 4;
+            data[6, 14]= 3;
+            data[6, 15] = 2;
+            data[6, 16] = 1;
             // sprawność
 
-            dataGridView1[7, 0].Value = 5;
-            dataGridView1[7, 1].Value = 1;
-            dataGridView1[7, 2].Value = 6;
-            dataGridView1[7, 3].Value = 9;
-            dataGridView1[7, 4].Value = 7;
-            dataGridView1[7, 5].Value = 11;
-            dataGridView1[7, 6].Value = 10;
-            dataGridView1[7, 7].Value = 3;
-            dataGridView1[7, 8].Value = 12;
-            dataGridView1[7, 9].Value = 2;
-            dataGridView1[7, 10].Value = 5;
-            dataGridView1[7, 11].Value = 7;
-            dataGridView1[7, 12].Value = 4;
-            dataGridView1[7, 13].Value = 9;
-            dataGridView1[7, 14].Value = 13;
-            dataGridView1[7, 15].Value = 8;
-            dataGridView1[7, 16].Value = 14;
+            data[7, 0] = 5;
+            data[7, 1] = 1;
+            data[7, 2] = 6;
+            data[7, 3]= 9;
+            data[7, 4] = 7;
+            data[7, 5] = 11;
+            data[7, 6] = 10;
+            data[7, 7] = 3;
+            data[7, 8] = 12;
+            data[7, 9] = 2;
+            data[7, 10] = 5;
+            data[7, 11] = 7;
+            data[7, 12] = 4;
+            data[7, 13] = 9;
+            data[7, 14] = 13;
+            data[7, 15] = 8;
+            data[7, 16] = 14;
             // temperatura
 
-            dataGridView1[8, 0].Value = 4;
-            dataGridView1[8, 1].Value = 11;
-            dataGridView1[8, 2].Value = 5;
-            dataGridView1[8, 3].Value = 7;
-            dataGridView1[8, 4].Value = 3;
-            dataGridView1[8, 5].Value = 6;
-            dataGridView1[8, 6].Value = 1;
-            dataGridView1[8, 7].Value = 8;
-            dataGridView1[8, 8].Value = 7;
-            dataGridView1[8, 9].Value = 5;
-            dataGridView1[8, 10].Value = 3;
-            dataGridView1[8, 11].Value = 2;
-            dataGridView1[8, 12].Value = 2;
-            dataGridView1[8, 13].Value = 1;
-            dataGridView1[8, 14].Value = 10;
-            dataGridView1[8, 15].Value = 5;
-            dataGridView1[8, 16].Value = 9;
+            data[8, 0] = 4;
+            data[8, 1] = 11;
+            data[8, 2]= 5;
+            data[8, 3] = 7;
+            data[8, 4]= 3;
+            data[8, 5] = 6;
+            data[8, 6] = 1;
+            data[8, 7]= 8;
+            data[8, 8] = 7;
+            data[8, 9] = 5;
+            data[8, 10] = 3;
+            data[8, 11] = 2;
+            data[8, 12] = 2;
+            data[8, 13]= 1;
+            data[8, 14] = 10;
+            data[8, 15] = 5;
+            data[8, 16] = 9;
 
             dataGridView3.RowCount = 7;
             dataGridView3.ColumnCount = 8;
-            dataGridView3.Columns[0].Width = 150;
-            dataGridView3.Columns[1].Width = 70;
-            dataGridView3.Columns[3].Width = 70;
-            dataGridView3.Columns[5].Width = 70;
 
+            dataGridView3.Columns[0].Width = 250;
+            dataGridView3.Columns[1].Width = 120;
+            dataGridView3.Columns[2].Width = 180;
+            dataGridView3.Columns[3].Width = 80;
+            dataGridView3.Columns[4].Width = 150;
+            dataGridView3.Columns[5].Width = 100;
+            dataGridView3.Columns[6].Width = 180;
+
+            dataGridView2.Columns[0].Width = 180;
+            dataGridView2.Columns[1].Width = 150;
+            dataGridView2.Columns[2].Width = 180;
+            dataGridView2.Columns[3].Width = 80;
+            dataGridView2.Columns[4].Width = 190;
             dataGridView3[0, 0].Value = "front ";
             dataGridView3[0, 1].Value = "right side zabudowy ";
             dataGridView3[0, 2].Value = "left side zabudowy"; 
@@ -333,7 +311,17 @@ namespace Delta
            
         }
 
-    
+    void read()
+    {
+          degrad[1] = 0.8; degrad[2] = 1.6;
+                degrad[3] = 2.4; degrad[4] = 3.2; degrad[5] = 4.3; degrad[6] = 4.8; degrad[7] = 5.6; degrad[8] = 6.4; degrad[9] = 7.2; degrad[10] = 8.0; degrad[11] = 8.8;
+                degrad[12] = 9.6; degrad[13] = 10.4; degrad[14] = 11.2; degrad[15] = 12.0; degrad[16] = 12.8; degrad[17] = 13.6; degrad[18] = 14.4; degrad[19] = 15.2;
+                degrad[20] = 16.0; degrad[21] = 16.8; degrad[22] = 17.6; degrad[23] = 18.4; degrad[24] = 19.2; degrad[25] = 20.0;
+
+
+                for (int i = 1; i <= 25; i++)
+                    degrad[i] /= 100.0;
+    }
        
 
         private void button1_Click(object sender, EventArgs e)
@@ -360,62 +348,45 @@ namespace Delta
 
         void degradacja()
         {
+                    
+
+                     
+         
+            double moc;
+           double spr;
+
+           moc = data[0, k-1];
+           spr = data[1, k-1];
+           
             r = (int)numericUpDown1.Value;
-            double[] moc = new double[18];
-            double[] spr = new double[18];
-
-            for (int i = 1; i <= 17; i++)
+           if (r > 0)
             {
-                moc[i] = double.Parse(dataGridView1[0, i - 1].Value.ToString());
-                spr[i] = double.Parse(dataGridView1[1, i - 1].Value.ToString());
-            }
+               read();
 
 
-            if (r > 0)
-            {
-                double[] degrad = new double[26];
+              
 
+                double moc1;
+                double spr1;
+               
+                        moc1 = moc - degrad[r] * moc;
+                        spr1 = spr - degrad[r] * spr;
+               
 
-                degrad[1] = 0.8; degrad[2] = 1.6;
-                degrad[3] = 2.4; degrad[4] = 3.2; degrad[5] = 4.3; degrad[6] = 4.8; degrad[7] = 5.6; degrad[8] = 6.4; degrad[9] = 7.2; degrad[10] = 8.0; degrad[11] = 8.8;
-                degrad[12] = 9.6; degrad[13] = 10.4; degrad[14] = 11.2; degrad[15] = 12.0; degrad[16] = 12.8; degrad[17] = 13.6; degrad[18] = 14.4; degrad[19] = 15.2;
-                degrad[20] = 16.0; degrad[21] = 16.8; degrad[22] = 17.6; degrad[23] = 18.4; degrad[24] = 19.2; degrad[25] = 20.0;
-
-
-                for (int i = 1; i <= 25; i++)
-                    degrad[i] /= 100.0;
-                double[,] moc1 = new double[18, 26];
-                double[,] spr1 = new double[18, 26];
-                for (int i = 1; i <= 25; i++)
-                    for (int j = 1; j <= 17; j++)
-                    {
-                        moc1[j, i] = moc[j] - degrad[i] * moc[j];
-                        spr1[j, i] = spr[j] - degrad[i] * spr[j];
-
-                    }
-
-                for (int i = 1; i <= 25; i++)
-                    for (int j = 1; j <= 17; j++)
-                    {
-                        dataGridView2[1, 0].Value = napis[k];
-                        dataGridView2[1, 1].Value = moc1[k, r];
-                        dataGridView2[1, 2].Value = spr1[k, r];
-                    }
-
-
-
-                double year;
-
+                dataGridView2[1, 1].Value = moc1.ToString("0.0");
+                dataGridView2[1, 2].Value = spr1.ToString("0.0");
+               
+               
                 chart1.Series[0].Enabled = true;
                 chart1.Series[1].Enabled = true;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
-                year = moc1[k, r];
-                chart1.Series[0].Points.AddXY(r, year);
+                
+                chart1.Series[0].Points.AddXY(r, moc1);
 
                 for (int i = 1; i <= 25; i++)
                 {
-                    chart1.Series[1].Points.AddY(moc1[k, i]);
+                    chart1.Series[1].Points.AddY(moc1);
 
                 }
 
@@ -425,14 +396,12 @@ namespace Delta
             {
 
 
-                chart1.Series[0].Points.AddXY(0, moc[k]);
-                for (int j = 1; j <= 17; j++)
-                {
+                chart1.Series[0].Points.AddXY(0, moc);
+               
 
-                    dataGridView2[1, 1].Value = moc[k];
-                    dataGridView2[1, 2].Value = spr[k];
-                }
-            
+                    dataGridView2[1, 1].Value = moc;
+                    dataGridView2[1, 2].Value = spr;
+               
 
             }
 
@@ -474,7 +443,7 @@ namespace Delta
             chart1.Series[1].LegendText = "[10* C]";
             chart1.ChartAreas[0].AxisX.Maximum = 13;
             chart1.ChartAreas[0].AxisX.Minimum = 0;
-            chart1.ChartAreas[0].AxisX.Title = "Miesiące";
+            chart1.ChartAreas[0].AxisX.Title = "Manth";
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -483,6 +452,8 @@ namespace Delta
             r = trackBar1.Value;
             numericUpDown1.Value = r;
             degradacja();
+            tabela_naslonecznienie();
+            
 
 
 
@@ -490,8 +461,7 @@ namespace Delta
 
         private void radioButton15_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
@@ -500,258 +470,154 @@ namespace Delta
                     chart1.Series[0].Points.AddY(B[i]);
                     chart1.Series[1].Points.AddY(10 * C[i]);
                 }
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
 
 
         }
 
         private void radioButton16_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 11;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
+           
         }
 
         private void radioButton17_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
                 naslonecznienie();
                 r = 10;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+          
         }
 
         private void radioButton18_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 9;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void radioButton14_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 8;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void radioButton13_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 7;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void radioButton12_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 6;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 5;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 4;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+          
         }
 
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 3;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+            
                 naslonecznienie();
                 r = 2;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
-        }
+            
+               }
 
         private void radioButton7_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+           
                 naslonecznienie();
                 r = 1;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
-                chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+                chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);     
 
 
         }
 
         private void radioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
-            {
+           
                 naslonecznienie();
                 r = 0;
                 chart1.Series[0].Points.Clear();
                 chart1.Series[1].Points.Clear();
                 chart1.Series[0].Points.AddXY(r + 1, B[r]);
                 chart1.Series[1].Points.AddXY(r + 1, 10 * C[r]);
-            }
-            else
-            {
-                chart1.Series[0].Enabled = false;
-                chart1.Series[1].Enabled = false;
-                chart1.Series[0].Points.Clear();
-                chart1.Series[1].Points.Clear();
-            }
+           
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -790,29 +656,31 @@ namespace Delta
 
             for (int i = 1; i < 18; i++) // wiersz
                 for (int j = 1; j < 4; j++) // kolumna
-                    tab[i, j] = double.Parse(dataGridView1[j + 5, i - 1].Value.ToString());
+                    tab[i, j] = data[j + 5, i - 1];
 
 
             for (int i = 1; i < 18; i++) // wiersz     
             {
                 WS[i] = (tab[i, 1] * cena / 120 + (tab[i, 2] * sprawn / 140 + tab[i, 3] * temper / 110) * jako / 100) / 10;
-                dataGridView1[9, i - 1].Value = WS[i].ToString("0.000");
+                data[9, i - 1] = WS[i];
             }
 
             double max = WS[1];
             string nap = "Poli-(klasyczny)";
             dataGridView2[1, 0].Value = nap;
+
             int numer = 1;
             for (int i = 2; i < 18; i++)
                 if (WS[i] > max) { max = WS[i]; numer = i; nap = napis[i - 2]; }
             for (int i = 1; i < 6; i++)
-                dataGridView2[1, i].Value = dataGridView1[i - 1, numer - 1].Value;
-            dataGridView2[1, 0].Value = dataGridView1[10, numer - 1].Value;
+                dataGridView2[1, i].Value = data[i - 1, numer - 1];
+            
+         
+            dataGridView2[1, 0].Value = napis[numer];
             
 
-            moc0 = double.Parse(dataGridView1[0, 0].Value.ToString());
-            label6.Text = "a panel is selected: " + dataGridView2[1, 0].Value;
-
+            label6.Text = "a panel is selected: " + napis[numer];
+            k = numer;
         }
      
 
@@ -821,17 +689,14 @@ namespace Delta
 
         }
 
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         
 
         void oblicz_dach()
         {
             double max, max1, max3, max4;
-
+            moc0 = double.Parse(dataGridView2[1, 1].Value.ToString());
             double wysa, wysb, jeden, moc_inst;
             // dataGridView2[2, 5].Value = "maksymalna ilość paneli";
             wysa = double.Parse(dataGridView2[1, 3].Value.ToString());
@@ -841,8 +706,8 @@ namespace Delta
 
             if (d == 1)
             {
-                dataGridView3[1, 0].Value = 0;
-                dataGridView3[1, 1].Value = 0;
+               // dataGridView3[1, 0].Value = 0;
+                //dataGridView3[1, 1].Value = 0;
                 x = double.Parse(dataGridView3[1, 2].Value.ToString());
                 y = double.Parse(dataGridView3[1, 3].Value.ToString());
                 kata = double.Parse(dataGridView3[3, 2].Value.ToString());
@@ -890,6 +755,26 @@ namespace Delta
                 katb *= 3.14 / 180.0;
                 x1 = 0.4 * x / Math.Cos(katb);
                 y1 = 0.4 * y / Math.Cos(kata);
+
+
+            }
+            else if (d == 6)
+            {
+
+                dataGridView3[1, 2].Value = double.Parse(dataGridView3[1, 1].Value.ToString());
+                dataGridView3[1, 3].Value = double.Parse(dataGridView3[1, 0].Value.ToString());
+                dataGridView3[3, 2].Value = double.Parse(dataGridView3[3, 1].Value.ToString());
+                dataGridView3[3, 3].Value = double.Parse(dataGridView3[3, 0].Value.ToString());
+
+                x = double.Parse(dataGridView3[1, 0].Value.ToString());
+                y = double.Parse(dataGridView3[1, 1].Value.ToString());
+
+                kata = double.Parse(dataGridView3[3, 0].Value.ToString());
+                katb = double.Parse(dataGridView3[3, 1].Value.ToString());
+                kata *= 3.14 / 180.0;
+                katb *= 3.14 / 180.0;
+                x1 = 0.3 * x / Math.Cos(katb);
+                y1 = 0.3 * y / Math.Cos(kata);
 
 
             }
@@ -995,6 +880,7 @@ namespace Delta
                 dataGridView3[5, 3].Value = " ";
                 dataGridView3[7, 2].Value = " ";
                 dataGridView3[7, 3].Value = " ";
+               
                 moc_inst = moc0 * double.Parse(dataGridView2[3, 5].Value.ToString());
 
                 dataGridView2[5, 0].Value = jeden;
@@ -1076,31 +962,13 @@ namespace Delta
 
         }
 
-        private void radioButton36_CheckedChanged(object sender, EventArgs e)
-        {
-            d = 10;
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = false;
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox7.Visible = false;
-          
-
-        }
+      
 
        
              private void radioButton40_CheckedChanged(object sender, EventArgs e)
         {
             d = 6;
-            pictureBox7.Visible = true;
-            pictureBox2.Visible = false;
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox1.Visible = false;
+
             dataGridView3[1, 0].Value = 15;
             dataGridView3[1, 1].Value = 8;
             dataGridView3[1, 2].Value = 8;
@@ -1110,18 +978,13 @@ namespace Delta
             dataGridView3[3, 1].Value = 0;
             dataGridView3[3, 2].Value = 0;
             dataGridView3[3, 3].Value = 20;
+            //solution();
         }
 
         private void radioButton35_CheckedChanged(object sender, EventArgs e)
         {
             d = 5;
-            pictureBox6.Visible = true;
-            pictureBox2.Visible = false;
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-           pictureBox1.Visible = false;
-            pictureBox7.Visible = false;         
+
 
             dataGridView3[1, 0].Value = 20;
             dataGridView3[1, 1].Value = 10;
@@ -1132,88 +995,65 @@ namespace Delta
             dataGridView3[3, 1].Value = 0;
             dataGridView3[3, 2].Value = 0;
             dataGridView3[3, 3].Value = 30;
+            //solution();
         }
 
         private void radioButton34_CheckedChanged(object sender, EventArgs e)
         {
             d = 4;
-            pictureBox5.Visible = true;
-            pictureBox2.Visible = false;
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox7.Visible = false;
-            pictureBox1.Visible = false;
 
-             dataGridView3[1, 0].Value = 20;
+            dataGridView3[1, 0].Value = 20;
             dataGridView3[1, 1].Value = 20;
             dataGridView3[1, 2].Value = 20;
             dataGridView3[1, 3].Value = 20;
 
-       
+
 
             dataGridView3[3, 0].Value = 30;
             dataGridView3[3, 1].Value = 30;
             dataGridView3[3, 2].Value = 30;
             dataGridView3[3, 3].Value = 30;
+            //solution();
         }
 
         private void radioButton33_CheckedChanged(object sender, EventArgs e)
         {
             d = 3;
-            pictureBox4.Visible = true;
-            pictureBox2.Visible = false;
-            pictureBox3.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox7.Visible = false;
-            pictureBox1.Visible = false;
 
             dataGridView3[1, 0].Value = 20;
             dataGridView3[1, 1].Value = 10;
             dataGridView3[1, 2].Value = 10;
             dataGridView3[1, 3].Value = 20;
 
-       
+
 
             dataGridView3[3, 0].Value = 30;
             dataGridView3[3, 1].Value = 30;
             dataGridView3[3, 2].Value = 30;
             dataGridView3[3, 3].Value = 30;
+            //solution();
         }
 
         private void radioButton32_CheckedChanged(object sender, EventArgs e)
         {
             d = 2;
-            pictureBox3.Visible = true;
-            pictureBox2.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox7.Visible = false;
-            pictureBox1.Visible = false;
 
             dataGridView3[1, 0].Value = 20;
             dataGridView3[1, 1].Value = 10;
             dataGridView3[1, 2].Value = 10;
             dataGridView3[1, 3].Value = 20;
-            
+
             dataGridView3[3, 0].Value = 30;
             dataGridView3[3, 1].Value = 0;
             dataGridView3[3, 2].Value = 0;
             dataGridView3[3, 3].Value = 30;
+            //solution();
         }
 
         private void radioButton31_CheckedChanged(object sender, EventArgs e)
         {
             d = 1;
-            pictureBox2.Visible = true;
-            pictureBox3.Visible = false;
-            pictureBox4.Visible = false;
-            pictureBox5.Visible = false;
-            pictureBox6.Visible = false;
-            pictureBox7.Visible = false;
-            pictureBox1.Visible = false;
+
 
             dataGridView3[1, 0].Value = 0;
             dataGridView3[1, 1].Value = 0;
@@ -1223,6 +1063,7 @@ namespace Delta
             dataGridView3[3, 1].Value = 0;
             dataGridView3[3, 2].Value = 30;
             dataGridView3[3, 3].Value = 0;
+          //  solution();
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1230,15 +1071,7 @@ namespace Delta
 
         }
 
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void trackBar5_Scroll(object sender, EventArgs e)
         {
@@ -1262,8 +1095,7 @@ namespace Delta
             chart2.ChartAreas[0].AxisY.Maximum = 4;
             chart2.ChartAreas[0].AxisY.Interval = 1;
             chart2.ChartAreas[0].AxisX.Interval = 1;
-            //for (int i = -5; i < 5; i++)
-            //    chart2.Series[0].Points.AddXY(rys.Real, rys.Imaginary);
+           
 
             if ((kat_b >= 0 && kat_b < 90) ||(kat_b > 270 && kat_b <= 360))
             {
@@ -1326,14 +1158,16 @@ namespace Delta
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (d != 10)
-            {
-                kompas();
-                oblicz_dach();
-                tabela_naslonecznienie();
-            }
-        }
 
+            solution();
+            
+        }
+        void solution()
+        {
+            kompas();
+            oblicz_dach();
+            tabela_naslonecznienie();
+        }
        
 
         void tabela_naslonecznienie()
@@ -1500,10 +1334,25 @@ namespace Delta
                 suma += wektro_LEWY[i];
                 produkcja_ogolem = suma;
 
+                read();
 
-               dataGridView2[5, 2].Value = produkcja_ogolem.ToString("0.000");
-            sprawnosc_sys=  (produkcja_ogolem / double.Parse(dataGridView2[5, 1].Value.ToString())) * 100.0;
-            dataGridView2[5, 3].Value =sprawnosc_sys.ToString("0.0") ;
+            int r = trackBar1.Value;
+
+            if (r > 0)
+            {
+                produkcja_ogolem = produkcja_ogolem -produkcja_ogolem * degrad[r];
+                dataGridView2[5, 2].Value = produkcja_ogolem.ToString("0.000");
+
+                sprawnosc_sys = (produkcja_ogolem / double.Parse(dataGridView2[5, 1].Value.ToString())) * 100.0;
+                dataGridView2[5, 3].Value = sprawnosc_sys.ToString("0.0");
+            }
+            else
+            {
+                dataGridView2[5, 2].Value = produkcja_ogolem.ToString("0.000");
+
+                sprawnosc_sys = (produkcja_ogolem / double.Parse(dataGridView2[5, 1].Value.ToString())) * 100.0;
+                dataGridView2[5, 3].Value = sprawnosc_sys.ToString("0.0");
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -1514,6 +1363,44 @@ namespace Delta
         private void groupBox4_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            solution();
+        }
+
+
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+            read();
+            double[] Power = new double[26];
+            double power1 = double.Parse(dataGridView2[5, 2].Value.ToString());
+            for (int i = 1; i < 25; i++)
+                Power[i] = power1 - power1 * degrad[i];
+            for (int i = 1; i < 25; i++)
+            {
+                chart1.Series[0].Points.AddY(Power[i]);
+                chart1.Series[1].Points.AddY(double.Parse(dataGridView2[5, 1].Value.ToString()));
+            }
+            chart1.Series[0].LegendText = "power produced";
+            chart1.Series[1].LegendText = "installed power";
+            chart1.ChartAreas[0].AxisX.Title = "year";
         }
 
     }
