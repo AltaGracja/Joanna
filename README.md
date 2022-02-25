@@ -1,1 +1,1 @@
-# Joanna
+# Photovoltaic production calculation program
